@@ -14,4 +14,9 @@ export class ManagementController {
   deActiveUser(@Body() body) {
     return this.managementService.deActiveUser(body);
   }
+  
+  @Post('user/add')
+  addUser(@Body() body) {
+    return this.managementService.addUser(body);
+  }
 }

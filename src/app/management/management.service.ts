@@ -12,4 +12,8 @@ export class ManagementService {
   async deActiveUser(body) {
     return (await this.managementQueries.deActiveUser(body)) ;
   }
+  
+  async addUser(body) {
+    return (await this.managementQueries.addUser(body)) ;
+  }
 }
