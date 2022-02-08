@@ -8,4 +8,8 @@ export class ManagementService {
   async getUsers() {
     return (await this.managementQueries.getUsers()).rows ;
   }
+  
+  async deActiveUser(body) {
+    return (await this.managementQueries.deActiveUser(body)) ;
+  }
 }

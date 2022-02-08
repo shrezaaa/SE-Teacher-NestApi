@@ -8,7 +8,13 @@ export class ManagementQueries {
 
   async getUsers(): Promise<QueryResult<any>> {
     return this.dataBaseService.executeQuery(
-      `select * from "se-teacher".professor;`,
+      `select * from "se-teacher".user;`,
+    );
+
+
+  }async deActiveUser(body): Promise<QueryResult<any>> {
+    return this.dataBaseService.executeQuery(
+      `select "se-teacher".deactive_user('${body.gmail??''}');`,
     );
   }
 }
