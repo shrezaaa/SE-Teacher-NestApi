@@ -18,6 +18,12 @@ export class ManagementQueries {
     );
   }
 
+  async activeUser(body): Promise<QueryResult<any>> {
+    return this.dataBaseService.executeQuery(
+      `select "se-teacher".active_user('${body.gmail ?? ''}');`,
+    );
+  }
+
   async addUser(body): Promise<QueryResult<any>> {
     return this.dataBaseService.executeQuery(
       `select "se-teacher".add_user('${body.gmail ?? ''}', 
@@ -25,6 +31,15 @@ export class ManagementQueries {
       '${body.lname ?? ''}' , 
       '${body.password ?? ''}' ,
       ${body.roleid ?? ''});`,
+    );
+  }
+
+  async editUser(body): Promise<QueryResult<any>> {
+    return this.dataBaseService.executeQuery(
+      `select "se-teacher".update_user('${body.gmail ?? ''}', 
+      '${body.fname ?? ''}' ,
+      '${body.lname ?? ''}' , 
+      '${body.password ?? ''}');`,
     );
   }
 }
